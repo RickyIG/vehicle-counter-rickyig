@@ -22,7 +22,7 @@
     <a href="https://github.com/RickyIG/Vehicle-counter-rickyig"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/RickyIG/Vehicle-counter-rickyig">View Demo</a>
+    <a href="https://drive.google.com/file/d/1b9UokXdeZrYOzdWu10D4_h8zSuPF2pz_/view?usp=sharing">View Demo</a>
     ·
     <a href="https://github.com/RickyIG/Vehicle-counter-rickyig/issues">Report Bug</a>
     ·
@@ -50,11 +50,12 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#model-options">Model Options</a></li>
+    <li><a href="#roadmap--goals">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
@@ -77,7 +78,7 @@ This system is ideal for traffic monitoring, smart city applications, and infras
 
 
 
-## Built With
+### Built With
 
 [![Python][Python]][Python-url]
 
@@ -183,7 +184,25 @@ This is an example of how to list things you need to run the software.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Model Options
 
+The Docker image includes multiple pre-converted YOLOv11 models optimized for CPU inference using OpenVINO.
+
+| Model Name       | Precision | Size   | Description                       |
+|------------------|-----------|--------|-----------------------------------|
+| `yolo11n_int8`   | INT8      | Small  | Fastest performance, lower accuracy |
+| `yolo11n_half`   | FP16      | Small  | Balanced speed and accuracy       |
+| `yolo11m_half`   | FP16      | Medium | Higher accuracy, slightly slower on CPU |
+
+✔ **Default Behavior**: If no model is specified, the program will automatically use `yolo11n_int8`.
+
+You can override the model via the `--model` argument like so:
+
+```bash
+python vehicle_counter.py --model=models/yolo11n_openvino_model
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap & Goals
